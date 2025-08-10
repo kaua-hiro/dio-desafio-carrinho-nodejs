@@ -29,7 +29,7 @@ function adicionarItem() {
         const produto = produtosDisponiveis.find(p => p.id === parseInt(id));
 
         if (!produto) {
-            console.log("Erro: Produto não encontrado.");
+            console.log("\nErro: Produto não encontrado.");
             exibirMenu();
             return;
         }
@@ -37,7 +37,7 @@ function adicionarItem() {
         rl.question(`Digite a quantidade de "${produto.nome}": `, (quantidade) => {
             const qtd = parseInt(quantidade);
             if (isNaN(qtd) || qtd <= 0) {
-                console.log("Erro: Quantidade inválida.");
+                console.log("\nErro: Quantidade inválida.");
                 exibirMenu();
                 return;
             }
@@ -56,7 +56,6 @@ function adicionarItem() {
     });
 }
 
-
 function removerItem() {
     if (carrinho.length === 0) {
         console.log("\nO carrinho está vazio.");
@@ -64,13 +63,13 @@ function removerItem() {
         return;
     }
 
-    listarCarrinho(false); // Lista o carrinho sem mostrar o total
+    listarCarrinho(false);
     rl.question("Digite o ID do produto que deseja remover: ", (id) => {
         const idNum = parseInt(id);
         const indexParaRemover = carrinho.findIndex(item => item.id === idNum);
 
         if (indexParaRemover === -1) {
-            console.log("Erro: Produto não encontrado no carrinho.");
+            console.log("\nErro: Produto não encontrado no carrinho.");
         } else {
             const nomeRemovido = carrinho[indexParaRemover].nome;
             carrinho.splice(indexParaRemover, 1);
@@ -80,32 +79,26 @@ function removerItem() {
     });
 }
 
-/**
- * Exibe o conteúdo atual do carrinho de compras.
- * @param {boolean} mostrarTotal - Se deve ou não exibir o total no final.
- */
 function listarCarrinho(mostrarTotal = true) {
+    console.log("\n--- Seu Carrinho ---");
     if (carrinho.length === 0) {
-        console.log("\n🛒 Seu carrinho está vazio.");
+        console.log("🛒 Seu carrinho está vazio.");
     } else {
-        console.log("\n--- Seu Carrinho ---");
         carrinho.forEach(item => {
             const subtotal = item.preco * item.quantidade;
             console.log(`ID: ${item.id} | ${item.nome} | Qtd: ${item.quantidade} | Subtotal: R$ ${subtotal.toFixed(2)}`);
         });
-        console.log("--------------------\n");
+        console.log("--------------------");
     }
-    if (mostrarTotal) {
+    if (mostrarTotal && carrinho.length > 0) {
         calcularTotal();
     }
 }
 
-
 function calcularTotal() {
     const total = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
-    console.log(`💰 Total do Carrinho: R$ ${total.toFixed(2)}\n`);
+    console.log(`\n💰 Total do Carrinho: R$ ${total.toFixed(2)}`);
 }
-
 
 function exibirMenu() {
     console.log(`
@@ -127,7 +120,9 @@ Escolha uma opção:
                 break;
             case '3':
                 listarCarrinho();
-                exibirMenu();
+                rl.question("\nPressione ENTER para voltar ao menu...", () => {
+                    exibirMenu();
+                });
                 break;
             case '4':
                 console.log("Obrigado por usar nosso sistema. Até logo!");
