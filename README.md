@@ -11,7 +11,7 @@ O objetivo foi construir um sistema de carrinho de compras totalmente funcional 
 
 ## ✨ Funcionalidades
 
--   **Menu Interativo**: Interface de linha de comando para guiar o usuário.
+-   **Menu Interativo**: Interface de linha de comando para guiar o usuário
 -   **Listagem de Produtos**: Exibe os produtos disponíveis para compra.
 -   **Adicionar Itens**: Permite adicionar produtos ao carrinho e especificar a quantidade. O sistema atualiza a quantidade se o item já existir.
 -   **Remover Itens**: Permite remover um produto do carrinho.
