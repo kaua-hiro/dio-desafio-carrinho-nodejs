@@ -3,7 +3,7 @@
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-## 📖 Sobre o Projeto
+## 📖 Sobre o Projeto.
 
 Este projeto foi desenvolvido como parte do **[Desafio de Projeto "Carrinho de Compras da Shopee"](https://web.dio.me/lab/carrinho-de-compras-da-shopee/learning/4529fa68-5c0d-4f67-b41f-4bab209432d7)**, parte da trilha **Mobile Developer** da [Digital Innovation One (DIO)](https://www.dio.me/).
 
